@@ -7,11 +7,14 @@ import { Input, Button, Form } from "antd";
 
 const TodoInput = (props) => {
   const { addTodo} = { ...props };
-
+    const [form] = Form.useForm();
   return (
     <>
       <Form
-        onFinish={addTodo}
+      form={form}
+        onFinish={(e) => {
+            addTodo(e)
+            form.resetFields()}}
         style={{ display: "flex", width: "100%", gap: "1rem" }}
       >
         <Form.Item style={{display: "block", width: "100%",}} name="todo">

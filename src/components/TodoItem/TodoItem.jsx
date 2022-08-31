@@ -6,11 +6,11 @@ import { DeleteTwoTone } from "@ant-design/icons";
 import { Button } from 'antd'
 
 const TodoItem = (props) => {
-    console.log(typeof(props.itemId))
     const {todo, itemId, deleteTodo} = {...props}
+    
   return (
     <div key={itemId} className='todo__item'>
-        <p>{todo}</p>
+        <p className='todo__item__text'>{todo}</p>
         <Button id={itemId} onClick={deleteTodo} icon={<DeleteTwoTone />}/>
     </div>
   )

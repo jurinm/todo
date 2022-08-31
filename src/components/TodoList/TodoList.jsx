@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const TodoList = () => {
   return (
-    <div>TodoList</div>
-  )
-}
+    <div>
 
-export default TodoList
+    </div>
+  );
+};
+
+export default TodoList;
