@@ -1,0 +1,8 @@
+.todo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 450px;
+    max-height: 450px;
+    background-color: beige;
+}
