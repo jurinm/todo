@@ -1,3 +1,10 @@
 .todo__input {
     
 }
+.todo__input__button {
+    background-color: #363C59 !important;
+    color: #BFD1D9 !important;
+}
+.todo__input__button :hover {
+    border-color: #6C718C !important;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./todo.css";
-
+import { notification } from "antd";
 import { TodoInput, TodoItem } from "../../components";
 
 const Todo = () => {
@@ -10,15 +10,32 @@ const Todo = () => {
     return savedTodos ? JSON.parse(savedTodos) : [];
   });
 
+  notification.config({
+    placement: "topRight",
+    bottom: 50,
+    duration: 5,
+    maxCount: 2,
+  });
+
+  const openError = () => {
+    const errorMessage = {
+      message: "Слишком много задач!",
+      duration: 7,
+      maxCount: 2,
+    };
+    notification.error(errorMessage);
+  };
+
   const addTodo = (todo) => {
-    const id = Date.now().toString();
-
-    setTodoList((val) => (val = [...todoList, { ...todo, id: id }]));
-
-    localStorage.setItem(
-      "storageTodos",
-      JSON.stringify([...todoList, { ...todo, id: id }])
-    );
+    if (todoList.length < 10) {
+      const id = Date.now().toString();
+      const updatedTodoList = [{ ...todo, id: id }, ...todoList];
+      setTodoList((val) => (val = updatedTodoList));
+      console.log(todoList);
+      localStorage.setItem("storageTodos", JSON.stringify(updatedTodoList));
+    } else {
+      openError();
+    }
   };
 
   const deleteTodo = (e) => {
@@ -27,8 +44,8 @@ const Todo = () => {
     });
 
     setTodoList((newVal) => (newVal = filteredTodoList));
-    if (filteredTodoList.length === 0 ) localStorage.removeItem("storageTodos");
-     else JSON.stringify(...filteredTodoList);
+    if (filteredTodoList.length === 0) localStorage.removeItem("storageTodos");
+    else JSON.stringify(...filteredTodoList);
   };
 
   return (
@@ -44,6 +61,11 @@ const Todo = () => {
           />
         );
       })}
+      {todoList.length === 0 ? (
+        <p>Пока нет никаких задач</p>
+      ) : (
+        <p>Задач на сегодня {todoList.length} из 10</p>
+      )}
     </div>
   );
 };

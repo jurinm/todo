@@ -7,10 +7,10 @@ import { Button } from 'antd'
 
 const TodoItem = (props) => {
     const {todo, itemId, deleteTodo} = {...props}
-    
+
   return (
     <div key={itemId} className='todo__item'>
-        <p className='todo__item__text'>{todo}</p>
+        <span className='todo__item__text'>{todo}</span>
         <Button id={itemId} onClick={deleteTodo} icon={<DeleteTwoTone />}/>
     </div>
   )

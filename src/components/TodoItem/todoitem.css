@@ -1,10 +1,23 @@
 .todo__item {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #0576da;
+    margin-bottom: 1.6rem;
+    padding: .3rem .6rem;
+    border-radius: .3rem;
+    font-family: var(--font-main);
 }
 
 .todo__item__text {
-    width: 100%;
-    vertical-align: middle;
+    flex: 1;
+    display: block;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+    word-break: break-all;
+    margin-right: .6rem;
+}
+
+.todo__item__text > p {
+    
 }
