@@ -19,4 +19,4 @@
 Для хранилища используется `localStorage`.
 В приложении используются фрэимворк [ANTD](https://ant.design/docs/react/introduce), а также, [momentjs](https://momentjs.com/) для работы с датами.
 
-Ознакомиться с рабочей версией можно [ТУТ](https://todo-cra.herokuapp.com/)
+Ознакомиться с рабочей версией можно <a href="https://todo-cra.herokuapp.com/" target="_blank">ТУТ</a>
