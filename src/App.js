@@ -1,6 +1,7 @@
-import './App.css';
-import {Todo} from './conteiners'
+import "./App.css";
 import "antd/dist/antd.css";
+
+import { Todo } from "./conteiners";
 
 function App() {
   return (

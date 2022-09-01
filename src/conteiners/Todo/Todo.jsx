@@ -1,8 +1,21 @@
 import React from "react";
 
 import "./todo.css";
+
+import { CloseOutlined } from "@ant-design/icons";
 import { notification } from "antd";
+
 import { TodoInput, TodoItem } from "../../components";
+
+import moment from "moment/moment";
+
+notification.config({
+  placement: "topRight",
+  bottom: 50,
+  duration: 5,
+  maxCount: 2,
+  closeIcon: <CloseOutlined style={{ fontSize: "1.6rem", color: "white" }} />,
+});
 
 const Todo = () => {
   const [todoList, setTodoList] = React.useState(() => {
@@ -10,28 +23,29 @@ const Todo = () => {
     return savedTodos ? JSON.parse(savedTodos) : [];
   });
 
-  notification.config({
-    placement: "topRight",
-    bottom: 50,
-    duration: 5,
-    maxCount: 2,
-  });
-
   const openError = () => {
     const errorMessage = {
       message: "Слишком много задач!",
       duration: 7,
-      maxCount: 2,
     };
-    notification.error(errorMessage);
+    notification.open(errorMessage);
   };
 
   const addTodo = (todo) => {
+    let deadline = null;
+
+    if (todo.deadline) deadline = moment(todo.deadline).format("x");
+
     if (todoList.length < 10) {
       const id = Date.now().toString();
-      const updatedTodoList = [{ ...todo, id: id }, ...todoList];
+
+      const updatedTodoList = [
+        { ...todo, id: id, deadline: deadline },
+        ...todoList,
+      ];
+
       setTodoList((val) => (val = updatedTodoList));
-      console.log(todoList);
+
       localStorage.setItem("storageTodos", JSON.stringify(updatedTodoList));
     } else {
       openError();
@@ -44,8 +58,10 @@ const Todo = () => {
     });
 
     setTodoList((newVal) => (newVal = filteredTodoList));
+
     if (filteredTodoList.length === 0) localStorage.removeItem("storageTodos");
-    else JSON.stringify(...filteredTodoList);
+
+    else localStorage.setItem("storageTodos", JSON.stringify(filteredTodoList));
   };
 
   return (
@@ -57,14 +73,17 @@ const Todo = () => {
             key={item.id}
             todo={item.todo}
             itemId={item.id}
+            deadline={item.deadline}
             deleteTodo={deleteTodo}
           />
         );
       })}
       {todoList.length === 0 ? (
-        <p>Пока нет никаких задач</p>
+        <p className="todo__tasks">Пока нет никаких задач</p>
       ) : (
-        <p>Задач на сегодня {todoList.length} из 10</p>
+        <p className={`${todoList.length < 9 ? "todo__tasks" : "todo-error"}`}>
+          Задач на сегодня {todoList.length} из 10
+        </p>
       )}
     </div>
   );

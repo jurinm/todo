@@ -1,23 +1,40 @@
 .todo__item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    background-color: #0576da;
-    margin-bottom: 1.6rem;
-    padding: .3rem .6rem;
-    border-radius: .3rem;
-    font-family: var(--font-main);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 2fr auto;
+  align-items: center;
+  background-color: var(--color-green-pale);
+  margin-bottom: 1.6rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  font-family: var(--font-main);
+  color: #fff;
+}
+
+.todo__item__control {
+  grid-row: 1 / span 2;
+  width: 100%;
 }
 
 .todo__item__text {
-    flex: 1;
-    display: block;
-    margin-bottom: 0;
-    font-size: 1.3rem;
-    word-break: break-all;
-    margin-right: .6rem;
+  grid-column: 1 / span 12;
+  grid-row: 1 / span 1;
+  font-size: 1.3rem;
+  word-break: break-all;
+  margin-right: 0.6rem;
 }
 
-.todo__item__text > p {
-    
+.todo__item__deadline {
+  grid-column: 1 / span 12;
+  grid-row: 2;
+  text-align: left;
+}
+
+.todo__item__deadline > p {
+  margin-bottom: 0;
+  text-decoration: underline dashed;
+}
+
+.todo__item__control__remove:hover {
+  background-color: var(--color-dark) !important;
 }

@@ -1,10 +1,35 @@
-.todo__input {
-    
+.todo__input:hover {
+  border-color: var(--color-dark) !important;
 }
+
+.ant-input-affix-wrapper:focus {
+  box-shadow: var(--shadow) !important;
+}
+
+.ant-input-affix-wrapper-focused {
+  border: 1px solid var(--color-dark) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.ant-input-affix-wrapper-focused:focus {
+  outline-color: var(--color-dark);
+  box-shadow: var(--shadow) !important;
+}
+
 .todo__input__button {
-    background-color: #363C59 !important;
-    color: #BFD1D9 !important;
+  background-color: var(--color-blue-pale) !important;
+  color: #ffffff !important;
+  font-size: 22px !important;
+  height: auto !important;
+  font-family: var(--font-main) !important;
+  border: none !important;
+  outline: none !important;
 }
-.todo__input__button :hover {
-    border-color: #6C718C !important;
+
+.todo__input__button:hover {
+  background-color: var(--color-dark) !important;
+}
+
+.ant-btn-default {
+  border: none !important;
 }

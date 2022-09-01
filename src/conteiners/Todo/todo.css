@@ -1,10 +1,19 @@
 .todo {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 450px;
 }
 
-.todo > p {
-    text-align: center;
+.todo-error,
+.todo__tasks {
+  text-align: center;
+}
+
+.todo-error {
+  color: var(--color-orange);
+}
+
+.todo__tasks {
+  color: #fff;
 }

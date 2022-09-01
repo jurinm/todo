@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;700&display=swap");
 :root {
   --font-main: "Josefin Sans", sans-serif;
+  --color-dark: #363c59;
+  --color-blue-pale: #6c718c;
+  --color-green-pale: #416872;
+  --color-orange: #f24405;
+  --shadow: 0 0 3px 2px #363c593a;
 }
 body {
   position: relative;
@@ -20,4 +25,52 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.ant-notification-notice-closable {
+  background-color: var(--color-orange) !important;
+}
+
+.ant-notification-notice-message {
+  color: #fff !important;
+  font-size: 1.3rem !important;
+}
+
+.ant-notification-notice-icon-error {
+  display: none !important;
+}
+
+.ant-picker-dropdown {
+  width: 100%;
+  max-width: 450px;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+  background-color: var(--color-dark) !important;
+}
+
+.ant-picker-cell-inner::before {
+  border-color: var(--color-dark) !important;
+}
+
+.ant-picker-now-btn {
+  color: var(--color-dark);
+}
+.ant-picker-now-btn:hover {
+  color: var(--color-orange);
+}
+
+.ant-btn-sm {
+  border: none !important;
+  color: white !important;
+  background-color: var(--color-blue-pale) !important;
+}
+
+.ant-btn-sm:hover {
+  background-color: var(--color-dark) !important;
+}
+
+.ant-picker:hover,
+.ant-picker-focused {
+  border-color: var(--color-dark) !important;
 }
