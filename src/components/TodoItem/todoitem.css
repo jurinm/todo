@@ -33,6 +33,7 @@
 .todo__item__deadline > p {
   margin-bottom: 0;
   text-decoration: underline dashed;
+  text-underline-offset: 3px;
 }
 
 .todo__item__control__remove:hover {
