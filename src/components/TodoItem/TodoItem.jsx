@@ -15,7 +15,7 @@ const TodoItem = (props) => {
 
   return (
     <>
-      <div key={itemId} className="todo__item">
+      <div className="todo__item">
         <div className="todo__item__text">
           <span>{todo}</span>
         </div>
